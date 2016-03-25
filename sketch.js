@@ -353,17 +353,17 @@ function title() {
                 textFont("Helvetica");
                 textAlign(LEFT);
                 fill(230,0,0);
-                text("Brick Breaker Pong is a game that combines elements of Pong",150,175);
-                text("and Brick Breaker to create a unique new game.",150,210);
-                text("The Objective is to hit the ball through the opponents base",150,245);
-                text("using the paddles. The ball speeds up each time it hits a paddle,",150, 280);
-                text("while the size of the paddles remain constant, thereby increasing", 150, 315);
-                text("the difficulty as the game progresses. The score does not play a",150,350);
-                text("role in the winner of the game, but rather is the difference in hits",150,385);
-                text("of the ball by each player, which shows how close a game was after",150,420);
-                text("a winner is declared. A high score shows that the winner won by a lot,",150, 455);
-                text("and a low score means perhaps should have lost. This acts as a player",150, 490);
-                text("rating, so someone with a high score should be hard to beat. Have fun!", 150, 525);
+                text("Brick Breaker Pong is a game that combines elements of Pong",140,175);
+                text("and Brick Breaker to create a unique new game.",140,210);
+                text("The Objective is to hit the ball through the opponents base",140,245);
+                text("using the paddles. The ball speeds up each time it hits a paddle,",140, 280);
+                text("while the size of the paddles remain constant, thereby increasing", 140, 315);
+                text("the difficulty as the game progresses. The score does not play a",140,350);
+                text("role in the winner of the game, but rather is the difference in hits",140,385);
+                text("of the ball by each player, which shows how close a game was after",140,420);
+                text("a winner is declared. A high score shows that the winner won by a lot,",140, 455);
+                text("and a low one means they perhaps should have lost. This acts as a player",140, 490);
+                text("rating, so someone with a higher score should be hard to beat. Have fun!", 140, 525);
 
             }
             if (title.button==="high score") {
