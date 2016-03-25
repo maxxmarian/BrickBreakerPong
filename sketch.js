@@ -232,7 +232,7 @@ function scoreBoard() {
     text("Player 2's Score:", 800,20);
     textSize(25);
     text(scoreBoard.player1Score, 400, 55);
-    text(scoreBoard.player2Score, 800, 55)
+    text(scoreBoard.player2Score, 800, 55);
 }
 function newGame() {
     //starting a new game
