@@ -70,7 +70,22 @@ function collisionDetect() {
     });
     //updating the ball's hitbox for increases in velocity
     ball.firstBall.setCollider("rectangle", 0, 0, ball.firstBall.velocity.x + ball.firstBall.collider.width, ball.firstBall.velocity.y + ball.firstBall.collider.height, 0);
-
+    paddles.player1.collide(walls.bottomWall, function(paddle, wall){
+        paddle.position.y=paddle.position.y-paddles.paddlespeed;
+        paddle.setSpeed(0,270);
+    })
+    paddles.player1.collide(walls.topWall, function(paddle, wall){
+        paddle.position.y=paddle.position.y+paddles.paddlespeed;
+        paddle.setSpeed(0,270);
+    })
+    paddles.player2.collide(walls.bottomWall, function(paddle, wall){
+        paddle.position.y=paddle.position.y-paddles.paddlespeed;
+        paddle.setSpeed(0,270);
+    })
+    paddles.player2.collide(walls.topWall, function(paddle, wall){
+        paddle.position.y=paddle.position.y+paddles.paddlespeed;
+        paddle.setSpeed(0,270);
+    })
 }
 
 function paddles() {
@@ -210,8 +225,12 @@ function scoreBoard() {
     scoreBoard.player1Score=hitCount.player1-hitCount.player2;
     scoreBoard.player2Score=hitCount.player2-hitCount.player1;
     fill(255);
-    textSize(25);
     textFont("Helvetica");
+    textAlign(CENTER);
+    textSize(20);
+    text("Player 1's Score:", 400,20);
+    text("Player 2's Score:", 800,20);
+    textSize(25);
     text(scoreBoard.player1Score, 400, 55);
     text(scoreBoard.player2Score, 800, 55)
 }
