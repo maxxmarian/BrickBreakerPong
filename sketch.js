@@ -9,11 +9,12 @@ function setup() {
     //calls functions to set up board, each players base, the paddles, and sides of the playing surface
     createCanvas(1200, 600);
     playerData();
-    bases();
-    paddles();
-    walls();
-    ball();
-    hitCount();
+    startScreen();
+    //bases();
+    //paddles();
+    //walls();
+    //ball();
+    //hitCount();
 }
 function preload() {
     //only image needed is the ball's white circle
@@ -24,10 +25,12 @@ function draw() {
     fill(255);
     drawSprites();
     collisionDetect();
-    movement();
-    scoreBoard();
-    checkForWinner();
-
+    title();
+    if (startScreen.finished) {
+        movement();
+        scoreBoard();
+        checkForWinner();
+    }
 }
 function ball() {
     //creates the ball for the first time. I used properties for a lot of stuff in this sketch because they can be
@@ -176,11 +179,11 @@ function checkForWinner() {
     //a ball position based winner check, that has a popup with the winner and then starts a new game
     if (ball.firstBall.position.x < 0) {
         confirm('Player 2 Wins, with a Score of '+scoreBoard.player2Score+'!');
-        newGame();
+        startScreen();
     }
     if (ball.firstBall.position.x > 1200) {
         confirm('Player 1 Wins, with a Score of '+scoreBoard.player1Score+'!');
-        newGame();
+        startScreen();
     }
 }
 function hitCount(){
@@ -218,6 +221,56 @@ function playerData(){
     players.addColumn("Player");
     players.addColumn("HighestScore");
     players.addColumn("Elo");
-    playerData.players=players;
-    saveTable(players,"media/playerDataTable.csv");
+    localStorage.players=players;
+}
+
+function startScreen() {
+    startScreen.finished = false;
+    title.buttonPressed=false;
+    bases();
+    paddles();
+    walls();
+    ball();
+    hitCount();
+    startScreen.startButton=createSprite(canvas.width/2-150,175,300,50);
+    startScreen.startButton.shapeColor="WHITE";
+    startScreen.startButton.mouseActive=true;
+    startScreen.instructionsButton=createSprite(canvas.width/2-150,275,300,50);
+    startScreen.instructionsButton.shapeColor="WHITE";
+
+}
+function title() {
+    title.buttonPressed;
+    title.button=null;
+    if(!startScreen.finished) {
+        if (startScreen.startButton.mouseIsPressed) {
+            title.buttonPressed = true;
+            title.button = "start";
+        }
+        if (!startScreen.finished) {
+            textSize(50);
+            textFont("Helvetica");
+            fill(230, 0, 0);
+            textAlign(CENTER);
+            text("Brick Breaker Pong", canvas.width / 2, 125);
+        }
+        if (!title.buttonPressed) {
+            textSize(35);
+            textFont("Helvetica");
+            fill(230, 0, 0);
+            textAlign(CENTER);
+            text("Play", canvas.width / 2, 210);
+            text("Instructions", canvas.width / 2, 310)
+        }
+        if (title.buttonPressed) {
+            if (title.button === "start") {
+                newGame();
+                startScreen.finished = true;
+
+            }
+            if (title.button === "instructions") {
+
+            }
+        }
+    }
 }
