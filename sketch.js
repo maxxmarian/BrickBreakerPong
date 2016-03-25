@@ -70,22 +70,22 @@ function collisionDetect() {
     });
     //updating the ball's hitbox for increases in velocity
     ball.firstBall.setCollider("rectangle", 0, 0, ball.firstBall.velocity.x + ball.firstBall.collider.width, ball.firstBall.velocity.y + ball.firstBall.collider.height, 0);
-    paddles.player1.collide(walls.bottomWall, function(paddle, wall){
+    paddles.player1.collide(walls.bottomWall, function(paddle){
         paddle.position.y=paddle.position.y-paddles.paddlespeed;
         paddle.setSpeed(0,270);
-    })
-    paddles.player1.collide(walls.topWall, function(paddle, wall){
+    });
+    paddles.player1.collide(walls.topWall, function(paddle){
         paddle.position.y=paddle.position.y+paddles.paddlespeed;
         paddle.setSpeed(0,270);
-    })
-    paddles.player2.collide(walls.bottomWall, function(paddle, wall){
+    });
+    paddles.player2.collide(walls.bottomWall, function(paddle){
         paddle.position.y=paddle.position.y-paddles.paddlespeed;
         paddle.setSpeed(0,270);
-    })
-    paddles.player2.collide(walls.topWall, function(paddle, wall){
+    });
+    paddles.player2.collide(walls.topWall, function(paddle){
         paddle.position.y=paddle.position.y+paddles.paddlespeed;
         paddle.setSpeed(0,270);
-    })
+    });
 }
 
 function paddles() {
