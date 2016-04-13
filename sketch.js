@@ -70,21 +70,21 @@ function collisionDetect() {
     });
     //updating the ball's hitbox for increases in velocity
     ball.firstBall.setCollider("rectangle", 0, 0, ball.firstBall.velocity.x + ball.firstBall.collider.width, ball.firstBall.velocity.y + ball.firstBall.collider.height, 0);
-    paddles.player1.collide(walls.bottomWall, function(paddle){
-        paddle.position.y=paddle.position.y-paddles.paddlespeed;
-        paddle.setSpeed(0,270);
+    paddles.player1.collide(walls.bottomWall, function (paddle) {
+        paddle.position.y = paddle.position.y - paddles.paddlespeed;
+        paddle.setSpeed(0, 270);
     });
-    paddles.player1.collide(walls.topWall, function(paddle){
-        paddle.position.y=paddle.position.y+paddles.paddlespeed;
-        paddle.setSpeed(0,270);
+    paddles.player1.collide(walls.topWall, function (paddle) {
+        paddle.position.y = paddle.position.y + paddles.paddlespeed;
+        paddle.setSpeed(0, 270);
     });
-    paddles.player2.collide(walls.bottomWall, function(paddle){
-        paddle.position.y=paddle.position.y-paddles.paddlespeed;
-        paddle.setSpeed(0,270);
+    paddles.player2.collide(walls.bottomWall, function (paddle) {
+        paddle.position.y = paddle.position.y - paddles.paddlespeed;
+        paddle.setSpeed(0, 270);
     });
-    paddles.player2.collide(walls.topWall, function(paddle){
-        paddle.position.y=paddle.position.y+paddles.paddlespeed;
-        paddle.setSpeed(0,270);
+    paddles.player2.collide(walls.topWall, function (paddle) {
+        paddle.position.y = paddle.position.y + paddles.paddlespeed;
+        paddle.setSpeed(0, 270);
     });
 }
 
@@ -193,25 +193,25 @@ function walls() {
 function checkForWinner() {
     //a ball position based winner check, that has a popup with the winner and then starts a new game
     if (ball.firstBall.position.x < 0) {
-        if(scoreBoard.player2Score>playerData.globalHighScore){
-            var highScoreHolder=prompt("Congratulations Player 2, you are the the winner and the new High Score Holder with a score of " + scoreBoard.player2Score + "! Please enter your name.");
-            localStorage.highestScore=scoreBoard.player2Score;
-            localStorage.highScoreHolder=highScoreHolder;
+        if (scoreBoard.player2Score > playerData.globalHighScore) {
+            var highScoreHolder = prompt("Congratulations Player 2, you are the the winner and the new High Score Holder with a score of " + scoreBoard.player2Score + "! Please enter your name.");
+            localStorage.highestScore = scoreBoard.player2Score;
+            localStorage.highScoreHolder = highScoreHolder;
             startScreen()
         }
-        if(scoreBoard.player2Score<playerData.globalHighScore) {
+        if (scoreBoard.player2Score < playerData.globalHighScore) {
             confirm('Player 2 Wins, with a Score of ' + scoreBoard.player2Score + '!');
             startScreen();
         }
     }
     if (ball.firstBall.position.x > 1200) {
-        if(scoreBoard.player1Score>playerData.globalHighScore){
-            var highScoreHolder=prompt("Congratulations Player 1, you are the winner and the new High Score Holder with a score of " + scoreBoard.player1Score + "! Please enter your name.");
-            localStorage.highestScore=scoreBoard.player1Score;
-            localStorage.highScoreHolder=highScoreHolder;
+        if (scoreBoard.player1Score > playerData.globalHighScore) {
+            var highScoreHolder = prompt("Congratulations Player 1, you are the winner and the new High Score Holder with a score of " + scoreBoard.player1Score + "! Please enter your name.");
+            localStorage.highestScore = scoreBoard.player1Score;
+            localStorage.highScoreHolder = highScoreHolder;
             startScreen();
         }
-        if(scoreBoard.player1Score<playerData.globalHighScore) {
+        if (scoreBoard.player1Score < playerData.globalHighScore) {
             confirm('Player 1 Wins, with a Score of ' + scoreBoard.player1Score + '!');
             startScreen();
         }
@@ -228,8 +228,8 @@ function scoreBoard() {
     textFont("Helvetica");
     textAlign(CENTER);
     textSize(20);
-    text("Player 1's Score:", 400,20);
-    text("Player 2's Score:", 800,20);
+    text("Player 1's Score:", 400, 20);
+    text("Player 2's Score:", 800, 20);
     textSize(25);
     text(scoreBoard.player1Score, 400, 55);
     text(scoreBoard.player2Score, 800, 55);
@@ -253,10 +253,10 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 function playerData(){
-    if (localStorage.highestScore!==undefined) {
+    if (localStorage.highestScore !== undefined) {
         playerData.globalHighScore = parseInt(localStorage.highestScore);
     }
-    else{
+    else {
         playerData.globalHighScore = 0;
     }
 }
@@ -278,15 +278,15 @@ function startScreen() {
     startScreen.startButton.setCollider("rectangle", 150, 25, 300, 50);
     startScreen.instructionsButton=createSprite(canvas.width/2-150,275,300,50);
     startScreen.instructionsButton.shapeColor="WHITE";
-    startScreen.instructionsButton.mouseActive=true;
+    startScreen.instructionsButton.mouseActive = true;
     startScreen.instructionsButton.setCollider("rectangle", 150, 25, 300, 50);
-    startScreen.highScoreButton=createSprite(canvas.width/2-150,375,300,50);
-    startScreen.highScoreButton.shapeColor="WHITE";
-    startScreen.highScoreButton.mouseActive=true;
+    startScreen.highScoreButton = createSprite(canvas.width / 2 - 150, 375, 300, 50);
+    startScreen.highScoreButton.shapeColor = "WHITE";
+    startScreen.highScoreButton.mouseActive = true;
     startScreen.highScoreButton.setCollider("rectangle", 150, 25, 300, 50);
-    startScreen.backButton=createSprite(canvas.width/2-150,2000,300,50);
-    startScreen.backButton.shapeColor="WHITE";
-    startScreen.backButton.mouseActive=true;
+    startScreen.backButton = createSprite(canvas.width / 2 - 150, 2000, 300, 50);
+    startScreen.backButton.shapeColor = "WHITE";
+    startScreen.backButton.mouseActive = true;
     startScreen.backButton.setCollider("rectangle", 150, 25, 300, 50);
 
 }
@@ -298,11 +298,11 @@ function title() {
             title.buttonPressed = true;
             title.button = "start";
         }
-        if (startScreen.instructionsButton.mouseIsPressed){
+        if (startScreen.instructionsButton.mouseIsPressed) {
             title.buttonPressed = true;
             title.button = "instructions";
         }
-        if (startScreen.highScoreButton.mouseIsPressed){
+        if (startScreen.highScoreButton.mouseIsPressed) {
             title.buttonPressed = true;
             title.button = "high score";
         }
@@ -320,9 +320,9 @@ function title() {
             textAlign(CENTER);
             text("Play", canvas.width / 2, 210);
             text("Instructions", canvas.width / 2, 310);
-            text("Local High Score",canvas.width / 2, 410);
+            text("Local High Score", canvas.width / 2, 410);
             textSize(25);
-            text("Made by Maxx Marian for AS Computer Science Midterm", canvas.width/2, 575);
+            text("Made by Maxx Marian for AS Computer Science Midterm", canvas.width / 2, 575);
         }
         if (title.buttonPressed) {
             if (title.button === "start") {
@@ -332,42 +332,42 @@ function title() {
             }
             if (title.button === "instructions") {
                 startScreen.startButton.position.y = 540;
-                startScreen.startButton.position.x = canvas.width/2+10;
+                startScreen.startButton.position.x = canvas.width / 2 + 10;
                 startScreen.backButton.position.y = 540;
-                startScreen.backButton.position.x= canvas.width/2-310;
+                startScreen.backButton.position.x = canvas.width / 2 - 310;
                 startScreen.instructionsButton.remove();
                 startScreen.highScoreButton.remove();
                 textSize(35);
                 textFont("Helvetica");
                 fill(230, 0, 0);
                 textAlign(CENTER);
-                text("Play", canvas.width / 2+160, 575);
-                text("Back", canvas.width / 2-160, 575);
-                if(startScreen.startButton.mouseIsPressed){
+                text("Play", canvas.width / 2 + 160, 575);
+                text("Back", canvas.width / 2 - 160, 575);
+                if (startScreen.startButton.mouseIsPressed) {
                     newGame();
                     startScreen.finished = true;
                 }
-                if(startScreen.backButton.mouseIsPressed){
+                if (startScreen.backButton.mouseIsPressed) {
                     startScreen();
                 }
                 textSize(30);
                 textFont("Helvetica");
                 textAlign(LEFT);
-                fill(230,0,0);
-                text("Brick Breaker Pong is a game that combines elements of Pong",140,175);
-                text("and Brick Breaker to create a unique new game.",140,210);
-                text("The Objective is to hit the ball through the opponents base",140,245);
-                text("using the paddles. The ball speeds up each time it hits a paddle,",140, 280);
+                fill(230, 0, 0);
+                text("Brick Breaker Pong is a game that combines elements of Pong", 140, 175);
+                text("and Brick Breaker to create a unique new game.", 140, 210);
+                text("The Objective is to hit the ball through the opponents base", 140, 245);
+                text("using the paddles. The ball speeds up each time it hits a paddle,", 140, 280);
                 text("while the size of the paddles remain constant, thereby increasing", 140, 315);
-                text("the difficulty as the game progresses. The score does not play a",140,350);
-                text("role in the winner of the game, but rather is the difference in hits",140,385);
-                text("of the ball by each player, which shows how close a game was after",140,420);
-                text("a winner is declared. A high score shows that the winner won by a lot,",140, 455);
-                text("and a low one means they perhaps should have lost. This acts as a player",140, 490);
+                text("the difficulty as the game progresses. The score does not play a", 140, 350);
+                text("role in the winner of the game, but rather is the difference in hits", 140, 385);
+                text("of the ball by each player, which shows how close a game was after", 140, 420);
+                text("a winner is declared. A high score shows that the winner won by a lot,", 140, 455);
+                text("and a low one means they perhaps should have lost. This acts as a player", 140, 490);
                 text("rating, so someone with a higher score should be hard to beat. Have fun!", 140, 525);
 
             }
-            if (title.button==="high score") {
+            if (title.button === "high score") {
                 startScreen.startButton.position.y = 540;
                 startScreen.startButton.position.x = canvas.width / 2 + 10;
                 startScreen.backButton.position.y = 540;
@@ -385,15 +385,15 @@ function title() {
                     text("This computer's current High Score is " + localStorage.highestScore + ",", canvas.width / 2, 200);
                     text("and is held by " + localStorage.highScoreHolder + "!", canvas.width / 2, 250);
                 }
-                if (playerData.globalHighScore === 0){
-                    text("A Positive High score has not been set yet",canvas.width/2, 200);
-                    text("on this computer, so go set one!",canvas.width/2, 250);
+                if (playerData.globalHighScore === 0) {
+                    text("A Positive High score has not been set yet", canvas.width / 2, 200);
+                    text("on this computer, so go set one!", canvas.width / 2, 250);
                 }
-                if(startScreen.startButton.mouseIsPressed){
+                if (startScreen.startButton.mouseIsPressed) {
                     newGame();
                     startScreen.finished = true;
                 }
-                if(startScreen.backButton.mouseIsPressed){
+                if (startScreen.backButton.mouseIsPressed) {
                     startScreen();
                 }
             }
