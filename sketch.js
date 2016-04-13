@@ -246,6 +246,7 @@ function newGame() {
     walls();
     ball();
     hitCount();
+    playerData();
 }
 //lastly, just a simple random integer code with a defined bound.
 function getRandomInt(min, max) {
@@ -381,7 +382,7 @@ function title() {
                 text("Back", canvas.width / 2 - 160, 575);
                 textSize(45);
                 if (playerData.globalHighScore !== 0) {
-                    text("This computer's current High Score is " + playerData.globalHighScore + ",", canvas.width / 2, 200);
+                    text("This computer's current High Score is " + localStorage.highestScore + ",", canvas.width / 2, 200);
                     text("and is held by " + localStorage.highScoreHolder + "!", canvas.width / 2, 250);
                 }
                 if (playerData.globalHighScore === 0){
