@@ -36,8 +36,12 @@ function ball() {
     //creates the ball for the first time. I used properties for a lot of stuff in this sketch because they can be
     //called from anywhere easily
     ball.firstBall = createSprite(600, 300, 30, 30);
+    ball.firstBall.draw = function() { ellipse(0,0,28,28) };
+    ball.firstBall.setCollider("circle",0,0,14);
+    ball.firstBall.shapeColor="WHITE";
+    //ball.firstBall.debug=true;
     ball.firstBall.setSpeed(getRandomInt(6, 9), getRandomInt(getRandomInt(140, 230), getRandomInt(60, 300)));
-    ball.firstBall.addImage(img);
+    //ball.firstBall.addImage(img);
 }
 
 function collisionDetect() {
@@ -100,7 +104,7 @@ function paddles() {
         paddle.shapeColor = "WHITE";
         paddle.immovable = true;
         //offsetting paddle hitboxes because p5 collision detection is sketchy.
-        paddle.setCollider("rectangle", 0, 40, 20, 100);
+        paddle.setCollider("rectangle", 12, 40, 20, 100);
     })
 
 }
