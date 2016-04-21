@@ -98,13 +98,15 @@ function paddles() {
     //in other parts of the sketch.
     paddles.player1 = createSprite(90, 360, 20, 100);
     paddles.player1.addToGroup(paddlesGroup);
+    paddles.player1.setCollider("rectangle", -10, 50, 20, 100);
     paddles.player2 = createSprite(1090, 360, 20, 100);
+    paddles.player2.setCollider("rectangle", 10, 50, 20, 100);
     paddles.player2.addToGroup(paddlesGroup);
     paddlesGroup.forEach(function (paddle) {
         paddle.shapeColor = "WHITE";
         paddle.immovable = true;
         //offsetting paddle hitboxes because p5 collision detection is sketchy.
-        paddle.setCollider("rectangle", 12, 40, 20, 100);
+        paddle.setCollider("rectangle", 12, 40, 10, 100);
     })
 
 }
