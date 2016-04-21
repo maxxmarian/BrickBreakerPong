@@ -39,7 +39,7 @@ function ball() {
     ball.firstBall.draw = function() { ellipse(0,0,28,28) };
     ball.firstBall.setCollider("circle",7,7,14);
     ball.firstBall.shapeColor="WHITE";
-    //ball.firstBall.debug=true;
+     //ball.firstBall.debug=true;
     ball.firstBall.setSpeed(getRandomInt(6, 9), getRandomInt(getRandomInt(140, 230), getRandomInt(60, 300)));
     //ball.firstBall.addImage(img);
 }
