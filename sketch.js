@@ -106,8 +106,7 @@ function paddles() {
         paddle.shapeColor = "WHITE";
         paddle.immovable = true;
         //offsetting paddle hitboxes because p5 collision detection is sketchy.
-        paddle.setCollider("rectangle", 12, 40, 10, 100);
-    })
+        })
 
 }
 function movement() {
