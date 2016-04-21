@@ -37,7 +37,7 @@ function ball() {
     //called from anywhere easily
     ball.firstBall = createSprite(600, 300, 30, 30);
     ball.firstBall.draw = function() { ellipse(0,0,28,28) };
-    ball.firstBall.setCollider("circle",0,0,14);
+    ball.firstBall.setCollider("circle",7,7,14);
     ball.firstBall.shapeColor="WHITE";
     //ball.firstBall.debug=true;
     ball.firstBall.setSpeed(getRandomInt(6, 9), getRandomInt(getRandomInt(140, 230), getRandomInt(60, 300)));
@@ -98,13 +98,12 @@ function paddles() {
     //in other parts of the sketch.
     paddles.player1 = createSprite(90, 360, 20, 100);
     paddles.player1.addToGroup(paddlesGroup);
-    paddles.player1.setCollider("rectangle", -10, 50, 20, 100);
     paddles.player2 = createSprite(1090, 360, 20, 100);
-    paddles.player2.setCollider("rectangle", 10, 50, 20, 100);
     paddles.player2.addToGroup(paddlesGroup);
     paddlesGroup.forEach(function (paddle) {
         paddle.shapeColor = "WHITE";
         paddle.immovable = true;
+        paddle.setCollider("rectangle", 10, 50, 20, 100);
         //offsetting paddle hitboxes because p5 collision detection is sketchy.
         })
 
