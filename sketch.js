@@ -16,9 +16,6 @@ function setup() {
     //ball();
     //hitCount();
 }
-function preload() {
-    //only image needed is the ball's white circle
-    img = loadImage('media/BallCircle.jpg');
 }
 function draw() {
     background(0);
