@@ -39,6 +39,7 @@ function ball() {
     ball.firstBall.draw = function() { ellipse(0,0,28,28) };
     ball.firstBall.setCollider("circle",7,7,14);
     ball.firstBall.shapeColor="WHITE";
+    ball.firstBall.maxSpeed=100;
     //ball.firstBall.debug=true;
     ball.firstBall.setSpeed(getRandomInt(6, 9), getRandomInt(getRandomInt(140, 230), getRandomInt(60, 300)));
     //ball.firstBall.addImage(img);
@@ -73,7 +74,7 @@ function collisionDetect() {
         hitCount.player2+=1;
     });
     //updating the ball's hitbox for increases in velocity
-    ball.firstBall.setCollider("rectangle", 0, 0, ball.firstBall.velocity.x + ball.firstBall.collider.width, ball.firstBall.velocity.y + ball.firstBall.collider.height, 0);
+    ball.firstBall.setCollider("circle", ball.firstBall.velocity.x/2, ball.firstBall.velocity.y/2, 14);
     paddles.player1.collide(walls.bottomWall, function (paddle) {
         paddle.position.y = paddle.position.y - paddles.paddlespeed;
         paddle.setSpeed(0, 270);
